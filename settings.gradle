@@ -14,7 +14,7 @@ buildscript {
 rootProject.name = "glean"
 
 // See https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:deferred_configuration.
-enableFeaturePreview('STABLE_PUBLISHING')
+//enableFeaturePreview('STABLE_PUBLISHING')
 
 def setupProject(name, projectProps) {
     def path = projectProps.path

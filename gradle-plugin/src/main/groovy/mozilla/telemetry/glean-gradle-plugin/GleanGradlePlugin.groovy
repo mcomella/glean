@@ -109,7 +109,14 @@ subprocess.check_call([
             TaskProvider buildConfigProvider = variant.getGenerateBuildConfigProvider()
             def originalPackageName = buildConfigProvider.get().getBuildConfigPackageName()
 
-            def fullNamespace = "${originalPackageName}.GleanMetrics"
+            def fuN = "${originalPackageName}.GleanMetrics"
+            def fullNamespace
+            if (fuN.contains(":glean:")) {
+                fullNamespace = "mozilla.telemetry.glean.GleanMetrics"
+            } else if (fuN.contains("glean-")) {
+                fullNamespace = "org.mozilla.samples.gleancore.GleanMetrics"
+            }
+
             def generateKotlinAPI = project.task("${TASK_NAME_PREFIX}SourceFor${variant.name.capitalize()}", type: Exec) {
                 description = "Generate the Kotlin code for the Metrics API"
 

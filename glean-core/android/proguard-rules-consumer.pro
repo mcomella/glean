@@ -6,5 +6,8 @@
 -keep class com.sun.jna.* { *; }
 -keepclassmembers class * extends com.sun.jna.* { public *; }
 
+#-keep class com.sun.jna.** { *; }
+#-keep class * implements com.sun.jna.** { *; }
+
 # Glean specific rules
 -keep class mozilla.telemetry.** { *; }

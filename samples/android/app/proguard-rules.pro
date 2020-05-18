@@ -19,3 +19,13 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-printconfiguration r8-config.txt
+-printusage r8-usage.txt
+
+#-ignorewarnings
+#-optimizations
+
+#-dontoptimize class com.sun.jna.* { *; }
+#-dontoptimize class * extends com.sun.jna.* { public *; }
+#-dontoptimize class mozilla.telemetry.** { *; }
